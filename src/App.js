@@ -1,40 +1,38 @@
-import chatIcon from "./Components/chat.svg"
+import React from 'react';
+// Components.
+import Sidebar from "./Components/Sidebar";
+import Statistics from './Components/Statistics';
+import ChatIcon from "./Components/ChatIcon";
+import RequestCard from './Components/RequestCard';
 
 function App() {
   return (
     <>
-      <section className="flex">
-
-        {/* SIDEBAR */}
-        <section className="box-right-shadow bg-white w-1/4 h-screen">
-          <div className="bg-slate-500 h-3/4"></div>
-          <div className="bg-slate-400 h-1/4"></div>
-        </section>
-
-        {/* Main-Screen */}
+      <div className="flex">
+        <Sidebar />
+        {/* Main-Section */}
         <section className="bg-slate-200 w-3/4 h-screen flex flex-col items-center">
-
-          {/* Request-Heading */}
-          <section className="bg-white shadow-xl w-4/5 mt-10 mb-5">
-            <h3 className="text-left text-green-700 font-semibold text-xl">You currently  have 3 requests</h3>
-          </section>
-
+          <h3 className="w-4/5 mt-10 mb-5 text-emerald-600 font-semibold text-xl">You currently  have 3 requests</h3>
           {/* Welcome-Box */}
-          <section className="bg-white shadow-xl rounded-sm w-4/5 h-1/4 mb-5"></section>
-
+          <section className="bg-white shadow-xl rounded-sm w-4/5 mb-5 py-5">
+            <div className='px-5'>
+              <Statistics />
+            </div>
+            <div className="rounded-full border flex overflow-hidden mx-2">
+              <span className="bg-yellow-200 w-2/5 pl-5 text-xs py-2">RECEIVED</span>
+              <span className="border-x-2 w-2/5 text-center text-xs py-2">NEGOTIATING</span>
+              <span className="w-2/5 text-center text-xs py-2">COMPLETED</span>
+            </div>
+          </section>
           {/* Request-Box */}
-          <section className="bg-white shadow-xl rounded-xl w-4/5 h-1/2 mb-5"></section>
-
-          {/* Chat-Icon */}
-          <div className="bg-white rounded-full w-14 h-14 flex justify-center items-center absolute bottom-5 right-2 shadow-inner">
-            <img src={chatIcon} className="chatIcon w-1/2" alt="chatIcon" />
-          </div>
-
+          <section className="bg-white shadow-xl rounded-xl w-4/5 p-5">
+            <Statistics />
+            <div className="bg-emerald-600 text-white text-xs rounded-full border w-4/5 py-2 pl-5 mb-5">COMPLETED</div>
+            <RequestCard />
+          </section>
+          <ChatIcon />
         </section>
-
-      </section>
-
-
+      </div>
     </>
   );
 }
