@@ -33,32 +33,30 @@ const RequestCard = () => {
     ]
 
     return (
-        <>
-            <div className="flex items-center overflow-auto py-4">
-                {requestData.map((item, index) => {
-                    const { shortDesc, badge, Singles, Doubles, imgCaption, img } = item
-                    return (
-                        <div className='border bg-gray-100 rounded-md mr-5 mb-2' key={index}>
-                            {badge && <button className='bg-red-400 py-2 px-2 text-center text-xs text-white rounded-lg relative -top-3.5 left-40'>Rare Find</button>}
-                            <div className={`flex justify-center items-center flex-col ${badge ? "badge-true" : "p-2"}`}>
-                                {img}
-                                <span className="text-lime-600 italic">{imgCaption}</span>
-                            </div>
-                            <div className='border shadow-[0px_1px_5px_1px_#b0bec5] rounded-xl p-2'>
-                                <p className='text-xs text-gray-600 text-center mb-3 w-48'>{shortDesc}</p>
-                                <div className='flex justify-evenly items-center text-gray-600'>
-                                    <div className='flex flex-col text-xs'>
-                                        <span>Singles: {Singles}</span>
-                                        <span>Doubles: {Doubles}</span>
-                                    </div>
-                                    <button className='bg-emerald-600 py-2 px-2 text-center text-xs text-white rounded-lg'>Book now</button>
+        <div className="pt-4 grid grid-cols-3 gap-5">
+            {requestData.map((item, index) => {
+                const { shortDesc, badge, Singles, Doubles, imgCaption, img } = item
+                return (
+                    <div key={index} className='border bg-gray-100 rounded-md'>
+                        {badge && <button className='bg-red-400 py-2 px-2 text-center text-xs text-white rounded-lg relative -top-3.5 left-40'>Rare Find</button>}
+                        <div className={`flex justify-center items-center flex-col ${badge ? "badge-true" : "p-2"}`}>
+                            {img}
+                            <span className="text-lime-600 italic">{imgCaption}</span>
+                        </div>
+                        <div className='border shadow-[0px_1px_5px_1px_#b0bec5] rounded-xl p-2'>
+                            <p className='text-xs text-gray-600 text-center mb-3 w-48'>{shortDesc}</p>
+                            <div className='flex justify-evenly items-center text-gray-600'>
+                                <div className='flex flex-col text-xs'>
+                                    <span>Singles: {Singles}</span>
+                                    <span>Doubles: {Doubles}</span>
                                 </div>
+                                <button className='bg-emerald-600 py-2 px-2 text-center text-xs text-white rounded-lg'>Book now</button>
                             </div>
                         </div>
-                    )
-                })}
-            </div>
-        </>
+                    </div>
+                )
+            })}
+        </div>
     )
 }
 
