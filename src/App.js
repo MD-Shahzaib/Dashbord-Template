@@ -2,17 +2,17 @@ import React from 'react';
 // Components.
 import Sidebar from "./Components/Sidebar";
 import Statistics from './Components/Statistics';
-import ChatIcon from "./Components/ChatIcon";
 import RequestCard from './Components/RequestCard';
+import ChatIcon from "./Components/ChatIcon";
 
 function App() {
   return (
     <>
-      <div className="flex">
+      <div className="flex justify-between bg-zinc-200">
         <Sidebar />
         {/* Main-Section */}
-        <section className="bg-slate-200 w-3/4 h-screen flex flex-col items-center">
-          <h3 className="w-4/5 mt-10 mb-5 text-emerald-600 font-semibold text-xl">You currently  have 3 requests</h3>
+        <section className="w-3/4 h-screen flex flex-col items-center">
+          <h3 className="w-4/5 my-5 text-emerald-600 font-semibold text-xl">You currently  have 3 requests</h3>
           {/* Welcome-Box */}
           <section className="bg-white shadow-xl rounded-sm w-4/5 mb-5 py-5">
             <div className='px-5'>
@@ -27,7 +27,8 @@ function App() {
           {/* Request-Box */}
           <section className="bg-white shadow-xl rounded-xl w-4/5 p-5">
             <Statistics />
-            <div className="bg-emerald-600 text-white text-xs rounded-full border w-4/5 py-2 pl-5 mb-5">COMPLETED</div>
+            <div className="bg-emerald-600 text-white text-xs rounded-full border w-4/5 py-2 pl-5 mb-2">COMPLETED</div>
+            {/* Request-Card */}
             <RequestCard />
           </section>
           <ChatIcon />
